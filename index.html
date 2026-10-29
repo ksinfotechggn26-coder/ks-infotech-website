@@ -1,279 +1,31 @@
 <!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="KS Infotech provides IT services, cloud software solutions, website designing and hosting, Tally customization and software development.">
-  <title>KS Infotech | IT Services & Software Solutions</title>
-  <style>
-    :root{--navy:#0b1f3a;--blue:#175cd3;--blue2:#eaf2ff;--ink:#172b4d;--muted:#5b6b82;--line:#dce5f1;--white:#fff;--green:#16803d}
-    *{box-sizing:border-box}
-    html{scroll-behavior:smooth;scroll-padding-top:90px}
-    body{margin:0;font-family:Arial,Helvetica,sans-serif;color:var(--ink);background:#fff;line-height:1.6}
-    a{color:inherit;text-decoration:none}
-    .container{width:min(1120px,92%);margin:auto}
-    header{position:sticky;top:0;z-index:20;background:#fff;border-bottom:1px solid var(--line);box-shadow:0 3px 15px #0b1f3a0b}
-    .nav{display:flex;align-items:center;justify-content:space-between;gap:24px;min-height:76px}
-    .brand{display:flex;align-items:center;gap:11px;font-weight:800;color:var(--navy);letter-spacing:.4px}
-    .logo{display:grid;place-items:center;width:42px;height:42px;border-radius:12px;background:var(--navy);color:#fff;font-weight:800}
-    .brand small{display:block;font-size:10px;letter-spacing:1.1px;color:var(--muted);font-weight:700}
-    .links{display:flex;align-items:center;gap:22px;font-size:14px;font-weight:700}
-    .links>a,.dropbtn{padding:10px 0}
-    .links>a:hover,.dropbtn:hover{color:var(--blue)}
-    .dropdown{position:relative}
-    .dropbtn{border:0;background:none;font:inherit;color:inherit;cursor:pointer;display:flex;gap:6px;align-items:center}
-    .dropmenu{display:none;position:absolute;top:100%;left:-18px;min-width:250px;background:#fff;border:1px solid var(--line);border-radius:12px;box-shadow:0 14px 34px #0b1f3a1a;padding:8px}
-    .dropdown:hover .dropmenu,.dropdown:focus-within .dropmenu,.dropdown.open .dropmenu{display:block}
-    .dropmenu a{display:block;padding:10px 12px;border-radius:8px;font-weight:600;font-size:14px}
-    .dropmenu a:hover{background:var(--blue2);color:var(--blue)}
-    .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border:0;border-radius:9px;background:var(--blue);color:#fff;font-weight:700;padding:13px 18px;cursor:pointer;transition:.2s}
-    .btn:hover{background:#124bb0;transform:translateY(-1px)}
-    .btn.outline{background:#fff;color:var(--blue);border:1px solid #b7cdf6}
-    .btn.green{background:var(--green)}
-    .menu-toggle{display:none;background:#fff;border:1px solid var(--line);border-radius:8px;padding:9px 12px;font-size:20px}
-    .hero{background:linear-gradient(120deg,#0b1f3a 0%,#123f79 70%,#175cd3 100%);color:#fff;padding:88px 0 78px;overflow:hidden}
-    .hero-grid{display:grid;grid-template-columns:1.25fr .75fr;gap:40px;align-items:center}
-    .eyebrow{display:inline-block;background:#ffffff19;border:1px solid #ffffff35;border-radius:999px;padding:7px 12px;font-size:12px;font-weight:800;letter-spacing:1px;text-transform:uppercase}
-    h1{font-size:clamp(36px,5vw,58px);line-height:1.1;letter-spacing:-1.5px;margin:18px 0}
-    .hero p{font-size:18px;max-width:650px;color:#dceaff;margin:0 0 25px}
-    .hero .btn.outline{background:transparent;border-color:#ffffff80;color:#fff}
-    .hero-actions{display:flex;gap:12px;flex-wrap:wrap}
-    .hero-card{background:#ffffff12;border:1px solid #ffffff2c;border-radius:22px;padding:26px;backdrop-filter:blur(5px)}
-    .hero-card h3{margin:0 0 16px;font-size:18px}
-    .hero-item{display:flex;gap:12px;align-items:flex-start;padding:13px 0;border-bottom:1px solid #ffffff25}
-    .hero-item:last-child{border-bottom:0}
-    .hero-icon{width:38px;height:38px;flex:0 0 38px;border-radius:10px;background:#ffffff18;display:grid;place-items:center;font-size:19px}
-    .hero-item strong{display:block}.hero-item span{font-size:13px;color:#dceaff}
-    section{padding:72px 0}
-    .section-head{text-align:center;max-width:720px;margin:0 auto 36px}
-    .kicker{color:var(--blue);font-size:12px;font-weight:800;letter-spacing:1.4px;text-transform:uppercase}
-    h2{font-size:clamp(28px,3.4vw,40px);line-height:1.2;color:var(--navy);margin:9px 0 12px;letter-spacing:-.6px}
-    .section-head p{color:var(--muted);margin:0}
-    .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-    .card{border:1px solid var(--line);border-radius:16px;padding:24px;background:#fff;box-shadow:0 8px 22px #0b1f3a06}
-    .card:hover{border-color:#b5caf1;box-shadow:0 12px 28px #0b1f3a0d}
-    .card-icon{width:48px;height:48px;border-radius:13px;background:var(--blue2);display:grid;place-items:center;font-size:24px;margin-bottom:17px}
-    .card h3{margin:0 0 8px;color:var(--navy);font-size:19px}
-    .card p{color:var(--muted);font-size:14px;margin:0 0 16px}
-    .small-link{font-size:14px;color:var(--blue);font-weight:800}
-    .pricing-note{margin-top:22px;text-align:center;background:#f6f9ff;border:1px solid var(--line);border-radius:12px;padding:16px;color:var(--muted);font-size:14px}
-    .product-card{display:flex;flex-direction:column;min-height:260px}
-    .product-card .small-link{margin-top:auto}
-    .product-tag{font-size:11px;letter-spacing:.7px;text-transform:uppercase;font-weight:800;color:var(--blue);background:var(--blue2);border-radius:999px;padding:5px 9px;display:inline-block;margin-bottom:12px;align-self:flex-start}
-    .why{background:#f6f9ff}
-    .why-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
-    .why-box{background:#fff;border:1px solid var(--line);border-radius:14px;padding:20px}
-    .why-box strong{display:block;color:var(--navy);margin:9px 0 5px}
-    .why-box p{font-size:13px;color:var(--muted);margin:0}
-    .cta{background:var(--navy);color:#fff;border-radius:20px;padding:36px;display:flex;align-items:center;justify-content:space-between;gap:24px}
-    .cta h2{color:#fff;margin-top:0}.cta p{color:#d3e1f5;margin-bottom:0}
-    .contact-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:28px;align-items:start}
-    .contact-info{background:var(--navy);color:#fff;border-radius:18px;padding:28px}
-    .contact-info h3{margin-top:0;font-size:23px}
-    .contact-info p{color:#d4e2f7}
-    .contact-row{display:flex;gap:12px;margin:20px 0;align-items:flex-start}
-    .contact-row b{display:block}.contact-row small{color:#d4e2f7}
-    form{border:1px solid var(--line);border-radius:18px;padding:28px;background:#fff}
-    .form-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-    label{display:block;font-size:13px;font-weight:800;margin-bottom:6px;color:var(--navy)}
-    input,select,textarea{width:100%;padding:12px 13px;border:1px solid #cbd7e7;border-radius:9px;font:inherit;color:var(--ink);background:#fff}
-    input:focus,select:focus,textarea:focus{outline:3px solid #175cd322;border-color:var(--blue)}
-    .field{margin-bottom:16px}.full{grid-column:1/-1}textarea{min-height:115px;resize:vertical}
-    .form-help{font-size:12px;color:var(--muted);margin:10px 0 0}
-    .notice{display:none;background:#edf9f0;color:#176b32;padding:12px;border-radius:8px;font-size:14px;margin:0 0 14px}
-    footer{background:#07172b;color:#d1dcec;padding:32px 0}
-    .footer-inner{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap}
-    footer strong{color:#fff}footer p{margin:5px 0;font-size:13px}
-    .wa-float{position:fixed;right:20px;bottom:20px;z-index:30;background:#16803d;color:#fff;border-radius:999px;padding:14px 18px;font-weight:800;box-shadow:0 8px 25px #07172b35}
-    .wa-float:hover{background:#116b32}
-    .anchor{scroll-margin-top:95px}
-    @media(max-width:850px){.links{gap:12px}.hero-grid{grid-template-columns:1fr}.hero-card{max-width:560px}.cards{grid-template-columns:repeat(2,1fr)}.why-grid{grid-template-columns:repeat(2,1fr)}.contact-grid{grid-template-columns:1fr}}
-    @media(max-width:650px){
-      .nav{min-height:68px}.menu-toggle{display:block}.links{display:none;position:absolute;top:68px;left:0;right:0;background:#fff;padding:14px 4% 20px;border-bottom:1px solid var(--line);align-items:stretch;flex-direction:column;gap:4px}
-      .links.show{display:flex}.links>a,.dropbtn{padding:12px 4px;width:100%;text-align:left}.dropdown{width:100%}.dropbtn{justify-content:space-between}.dropmenu{position:static;box-shadow:none;border:0;border-left:2px solid var(--line);border-radius:0;margin:0 0 5px 8px;padding:4px 8px}
-      .hero{padding:62px 0}.hero p{font-size:16px}.cards,.why-grid{grid-template-columns:1fr}.cta{align-items:flex-start;flex-direction:column;padding:27px}.form-grid{grid-template-columns:1fr}.full{grid-column:auto}section{padding:56px 0}.wa-float{right:12px;bottom:12px;padding:12px 15px}
-    }
-  </style>
-</head>
-<body>
-<header>
-  <div class="container nav">
-    <a class="brand" href="#home" aria-label="KS Infotech home"><span class="logo">KS</span><span>KS INFOTECH<small>IT SERVICES & SOFTWARE SOLUTIONS</small></span></a>
-    <button class="menu-toggle" id="menuToggle" aria-label="Open navigation" aria-expanded="false">☰</button>
-    <nav class="links" id="navLinks" aria-label="Main navigation">
-      <a href="#home">Home</a>
-      <a href="#services">Services & Pricing</a>
-      <div class="dropdown" id="productsDropdown">
-        <button class="dropbtn" id="productsButton" aria-expanded="false">Products <span>⌄</span></button>
-        <div class="dropmenu">
-          <a href="#tally-cloud">Tally on Cloud</a>
-          <a href="#busy-cloud">BUSY on Cloud</a>
-          <a href="#marg-cloud">Marg on Cloud</a>
-          <a href="#website-hosting">Website Designing & Hosting</a>
-          <a href="#tally-customization">Tally Customization</a>
-          <a href="#software-development">Software Development</a>
-          <a href="#vyapar">Vyapar Software</a>
-        </div>
-      </div>
-      <a href="#contact">Contact Us</a>
-    </nav>
-  </div>
-</header>
-
-<main>
-  <section class="hero anchor" id="home">
-    <div class="container hero-grid">
-      <div>
-        <span class="eyebrow">Technology that works for your business</span>
-        <h1>Smart IT Solutions<br>for Your Business</h1>
-        <p>KS Infotech helps businesses explore software, cloud solutions, website services and tailored IT support — with clear guidance and friendly assistance.</p>
-        <div class="hero-actions">
-          <a class="btn" href="#services">Explore Services&nbsp; →</a>
-          <a class="btn outline" href="#contact">Request a Quote</a>
-        </div>
-      </div>
-      <div class="hero-card">
-        <h3>How we can help</h3>
-        <div class="hero-item"><div class="hero-icon">☁</div><div><strong>Software on Cloud</strong><span>Tally, BUSY and Marg cloud enquiries</span></div></div>
-        <div class="hero-item"><div class="hero-icon">⌘</div><div><strong>Web & Development</strong><span>Website designing, hosting and custom software</span></div></div>
-        <div class="hero-item"><div class="hero-icon">⚙</div><div><strong>Customization</strong><span>Tally customization and business workflows</span></div></div>
-      </div>
-    </div>
-  </section>
-
-  <section id="services" class="anchor">
-    <div class="container">
-      <div class="section-head"><span class="kicker">What we do</span><h2>Services & Pricing</h2><p>Practical technology services to support your business. Share your requirements and request a tailored quotation.</p></div>
-      <div class="cards">
-        <article class="card"><div class="card-icon">☁️</div><h3>Cloud Software Solutions</h3><p>Enquire about cloud access options for supported business software, subject to availability and licence requirements.</p><a class="small-link" href="#contact" data-service="Cloud Software Solutions">Request pricing →</a></article>
-        <article class="card"><div class="card-icon">🌐</div><h3>Website Designing & Hosting</h3><p>Business websites, hosting options and website support based on your goals and requirements.</p><a class="small-link" href="#contact" data-service="Website Designing & Hosting">Request pricing →</a></article>
-        <article class="card"><div class="card-icon">⚙️</div><h3>Tally Customization</h3><p>Discuss custom reports, workflows and other Tally-related requirements.</p><a class="small-link" href="#contact" data-service="Tally Customization">Request pricing →</a></article>
-        <article class="card"><div class="card-icon">💻</div><h3>Software Development</h3><p>Talk to us about software requirements, features, integrations and project estimates.</p><a class="small-link" href="#contact" data-service="Software Development">Request pricing →</a></article>
-        <article class="card"><div class="card-icon">🧾</div><h3>Business Software</h3><p>Product enquiries for Tally, BUSY, Marg and Vyapar software.</p><a class="small-link" href="#contact" data-service="Business Software">Request pricing →</a></article>
-        <article class="card"><div class="card-icon">🤝</div><h3>IT Consultation</h3><p>Get help identifying a suitable technology or software option for your business.</p><a class="small-link" href="#contact" data-service="IT Consultation">Talk to us →</a></article>
-      </div>
-      <div class="pricing-note"><strong>Pricing:</strong> Prices depend on product edition, licence, users and project scope. Contact KS Infotech for current availability and a quotation.</div>
-    </div>
-  </section>
-
-  <section id="products" class="anchor" style="background:#f8faff">
-    <div class="container">
-      <div class="section-head"><span class="kicker">Explore our offerings</span><h2>Products & Solutions</h2><p>Select a product to learn more or send an enquiry directly to KS Infotech.</p></div>
-      <div class="cards">
-        <article class="card product-card anchor" id="tally-cloud"><span class="product-tag">Cloud solution</span><h3>Tally on Cloud</h3><p>Enquire about accessing supported Tally software through a cloud setup. Options depend on licensing and requirements.</p><a class="small-link" href="#contact" data-product="Tally on Cloud">Enquire about Tally on Cloud →</a></article>
-        <article class="card product-card anchor" id="busy-cloud"><span class="product-tag">Cloud solution</span><h3>BUSY on Cloud</h3><p>Discuss cloud access options for BUSY software and your business workflow.</p><a class="small-link" href="#contact" data-product="BUSY on Cloud">Enquire about BUSY on Cloud →</a></article>
-        <article class="card product-card anchor" id="marg-cloud"><span class="product-tag">Cloud solution</span><h3>Marg on Cloud</h3><p>Ask about cloud options for Marg software, subject to product and licence availability.</p><a class="small-link" href="#contact" data-product="Marg on Cloud">Enquire about Marg on Cloud →</a></article>
-        <article class="card product-card anchor" id="website-hosting"><span class="product-tag">Web services</span><h3>Website Designing & Hosting</h3><p>Get a website designed for your business and discuss hosting and maintenance options.</p><a class="small-link" href="#contact" data-product="Website Designing & Hosting">Enquire about website services →</a></article>
-        <article class="card product-card anchor" id="tally-customization"><span class="product-tag">Customization</span><h3>Tally Customization</h3><p>Discuss reports, features and workflow changes that fit your business requirements.</p><a class="small-link" href="#contact" data-product="Tally Customization">Enquire about customization →</a></article>
-        <article class="card product-card anchor" id="software-development"><span class="product-tag">Development</span><h3>Software Development</h3><p>Share your project idea and requirements for a preliminary discussion and estimate.</p><a class="small-link" href="#contact" data-product="Software Development">Discuss your project →</a></article>
-        <article class="card product-card anchor" id="vyapar"><span class="product-tag">Business software</span><h3>Vyapar Software</h3><p>Ask about product details, suitability and current availability.</p><a class="small-link" href="#contact" data-product="Vyapar Software">Enquire about Vyapar →</a></article>
-      </div>
-    </div>
-  </section>
-
-  <section class="why">
-    <div class="container">
-      <div class="section-head"><span class="kicker">Why KS Infotech</span><h2>Technology with a business-first approach</h2><p>We aim to make software and IT decisions easier for your business.</p></div>
-      <div class="why-grid">
-        <div class="why-box"><div class="card-icon">🎯</div><strong>Requirement-focused</strong><p>Recommendations based on the needs you share.</p></div>
-        <div class="why-box"><div class="card-icon">💬</div><strong>Clear communication</strong><p>Discuss requirements and pricing before proceeding.</p></div>
-        <div class="why-box"><div class="card-icon">🧩</div><strong>Multiple solutions</strong><p>Cloud software, web services and development enquiries.</p></div>
-        <div class="why-box"><div class="card-icon">🤝</div><strong>Easy enquiries</strong><p>Contact us through the form or WhatsApp.</p></div>
-      </div>
-    </div>
-  </section>
-
-  <section>
-    <div class="container">
-      <div class="cta"><div><h2>Looking for the right IT solution?</h2><p>Tell us what your business needs. We’ll help you start the conversation.</p></div><a class="btn green" href="https://wa.me/919971518060?text=Hello%20KS%20Infotech%2C%20I%20would%20like%20to%20enquire%20about%20your%20services." target="_blank" rel="noopener">Chat on WhatsApp ↗</a></div>
-    </div>
-  </section>
-
-  <section id="contact" class="anchor">
-    <div class="container">
-      <div class="section-head"><span class="kicker">Get in touch</span><h2>Contact KS Infotech</h2><p>Share your details and select the product or service you want to enquire about.</p></div>
-      <div class="contact-grid">
-        <div class="contact-info">
-          <h3>Let's discuss your requirements</h3>
-          <p>For product information, pricing and service enquiries, message us on WhatsApp or use the enquiry form.</p>
-          <div class="contact-row"><div class="hero-icon">💬</div><div><b>WhatsApp</b><small>+91 99715 18060</small></div></div>
-          <div class="contact-row"><div class="hero-icon">🖥️</div><div><b>Business</b><small>IT Services & Software Solutions</small></div></div>
-          <div class="contact-row"><div class="hero-icon">✉️</div><div><b>Email</b><small><a href="mailto:ksinfotechggn26@gmail.com" style="color:#d4e2f7;text-decoration:underline">ksinfotechggn26@gmail.com</a></small></div></div>
-          <a class="btn green" href="https://wa.me/919971518060?text=Hello%20KS%20Infotech%2C%20I%20have%20an%20enquiry." target="_blank" rel="noopener">Message on WhatsApp ↗</a>
-          <a class="btn outline" href="mailto:ksinfotechggn26@gmail.com">Email Us ✉</a>
-        </div>
-        <form id="enquiryForm">
-          <div id="formNotice" class="notice" role="status">Your WhatsApp enquiry is ready. Please review it in WhatsApp and press Send.</div>
-          <div class="form-grid">
-            <div class="field"><label for="name">Full Name *</label><input id="name" name="name" required autocomplete="name" placeholder="Your name"></div>
-            <div class="field"><label for="phone">Mobile Number *</label><input id="phone" name="phone" required inputmode="tel" autocomplete="tel" placeholder="Your phone number"></div>
-            <div class="field"><label for="email">Email Address</label><input id="email" name="email" type="email" autocomplete="email" placeholder="you@example.com"></div>
-            <div class="field"><label for="product">Product Name *</label><select id="product" name="product" required><option value="">Select Product Name</option><option>Tally on Cloud</option><option>BUSY on Cloud</option><option>Marg on Cloud</option><option>Website Designing & Hosting</option><option>Tally Customization</option><option>Software Development</option><option>Vyapar Software</option><option>Other IT Service</option></select></div>
-            <div class="field full"><label for="message">Requirement / Message *</label><textarea id="message" name="message" required placeholder="Tell us about your requirement"></textarea></div>
-            <div class="field full"><button class="btn" type="submit">Send Enquiry via WhatsApp ↗</button><p class="form-help">This free static website prepares an enquiry in WhatsApp. It does not store or email form submissions. The customer must press Send in WhatsApp.</p></div>
-          </div>
-        </form>
-      </div>
-    </div>
-  </section>
-</main>
-
-<footer>
-  <div class="container footer-inner">
-    <div><strong>KS INFOTECH</strong><p>IT Services & Software Solutions</p></div>
-    <p><a href="mailto:ksinfotechggn26@gmail.com" style="color:#d1dcec;text-decoration:underline">ksinfotechggn26@gmail.com</a></p>
-    <p>© <span id="year"></span> KS Infotech. All rights reserved.</p>
-  </div>
-</footer>
-<a class="wa-float" href="https://wa.me/919971518060?text=Hello%20KS%20Infotech" target="_blank" rel="noopener" aria-label="Chat with KS Infotech on WhatsApp">☏ WhatsApp</a>
-
-<script>
-  const menuToggle = document.getElementById('menuToggle');
-  const navLinks = document.getElementById('navLinks');
-  const dropdown = document.getElementById('productsDropdown');
-  const productsButton = document.getElementById('productsButton');
-
-  menuToggle.addEventListener('click', () => {
-    const open = navLinks.classList.toggle('show');
-    menuToggle.setAttribute('aria-expanded', String(open));
-  });
-  productsButton.addEventListener('click', () => {
-    const open = dropdown.classList.toggle('open');
-    productsButton.setAttribute('aria-expanded', String(open));
-  });
-  document.querySelectorAll('#navLinks a').forEach(a => a.addEventListener('click', () => {
-    navLinks.classList.remove('show');
-    menuToggle.setAttribute('aria-expanded', 'false');
-    dropdown.classList.remove('open');
-    productsButton.setAttribute('aria-expanded', 'false');
-  }));
-  document.querySelectorAll('[data-product]').forEach(link => link.addEventListener('click', () => {
-    document.getElementById('product').value = link.dataset.product;
-  }));
-  document.querySelectorAll('[data-service]').forEach(link => link.addEventListener('click', () => {
-    const product = document.getElementById('product');
-    const map = {
-      'Cloud Software Solutions':'Tally on Cloud',
-      'Website Designing & Hosting':'Website Designing & Hosting',
-      'Tally Customization':'Tally Customization',
-      'Software Development':'Software Development',
-      'Business Software':'Other IT Service',
-      'IT Consultation':'Other IT Service'
-    };
-    product.value = map[link.dataset.service] || 'Other IT Service';
-  }));
-  document.getElementById('enquiryForm').addEventListener('submit', function(e) {
-    e.preventDefault();
-    const name = document.getElementById('name').value.trim();
-    const phone = document.getElementById('phone').value.trim();
-    const email = document.getElementById('email').value.trim();
-    const product = document.getElementById('product').value;
-    const message = document.getElementById('message').value.trim();
-    const text = `Hello KS Infotech,%0A%0AI would like to make an enquiry.%0A%0AName: ${encodeURIComponent(name)}%0AMobile: ${encodeURIComponent(phone)}%0AEmail: ${encodeURIComponent(email || 'Not provided')}%0AProduct/Service: ${encodeURIComponent(product)}%0ARequirement: ${encodeURIComponent(message)}`;
-    document.getElementById('formNotice').style.display = 'block';
-    window.open('https://wa.me/919971518060?text=' + text, '_blank', 'noopener');
-  });
-  document.getElementById('year').textContent = new Date().getFullYear();
-</script>
-</body>
-</html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="KS Infotech cloud hosting, business software, CRM, websites and software development."><title>KS Infotech | Cloud, Software & CRM</title>
+<style>
+:root{--navy:#0b1f44;--blue:#1769e0;--pale:#edf5ff;--ink:#17233b;--muted:#60708a;--line:#dce6f2;--green:#16a36a}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font:16px/1.6 Arial,sans-serif;color:var(--ink)}a{text-decoration:none;color:inherit}.wrap{width:min(1120px,92%);margin:auto}header{position:sticky;top:0;background:#fffffff2;border-bottom:1px solid var(--line);z-index:5}.nav{display:flex;align-items:center;justify-content:space-between;gap:18px;padding:14px 0}.brand{font-size:1.3rem;font-weight:800;color:var(--navy)}.brand span{color:var(--blue)}nav{display:flex;gap:17px;flex-wrap:wrap;font-size:.92rem;font-weight:bold}.btn{display:inline-block;background:var(--blue);color:white;border:0;border-radius:9px;padding:11px 17px;font-weight:bold;cursor:pointer}.btn:hover{background:#0d51b7}.green{background:var(--green)}.hero{background:radial-gradient(circle at 85% 15%,#2c61a8,transparent 30%),linear-gradient(120deg,#091b3c,#123d7d);color:white;padding:78px 0}.heroGrid,.two,.contact{display:grid;grid-template-columns:1.2fr .8fr;gap:35px;align-items:center}.eyebrow{font-size:.8rem;letter-spacing:2px;text-transform:uppercase;color:#83b8ff;font-weight:bold}h1{font-size:clamp(2.4rem,5vw,4rem);line-height:1.1;margin:12px 0}h2{font-size:clamp(1.8rem,3vw,2.6rem);line-height:1.2;color:var(--navy);margin:8px 0 12px}.hero p{color:#e0ebff;font-size:1.08rem}.actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:24px}.light{background:white;color:var(--blue)}.heroBox{border:1px solid #ffffff40;background:#ffffff12;border-radius:18px;padding:25px}.heroBox div{margin:14px 0;color:#e5efff}.tick{color:#9dffd4;margin-right:9px}section{padding:68px 0}.soft{background:#f5f8fd}.head{text-align:center;max-width:740px;margin:0 auto 35px}.head .eyebrow{color:var(--blue)}.muted,.card p{color:var(--muted)}.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.card{border:1px solid var(--line);border-radius:15px;padding:23px;background:white;box-shadow:0 7px 22px #183b650d}.card h3{color:var(--navy);margin:0 0 8px}.card p{margin:0;font-size:.95rem}.ico{width:46px;height:46px;display:grid;place-items:center;background:var(--pale);border-radius:12px;font-size:1.4rem;margin-bottom:14px}.price{display:block;color:var(--blue);font-weight:bold;font-size:.9rem;margin-top:14px}.two{grid-template-columns:1fr 1fr}.checklist{padding-left:20px}.checklist li{margin:9px 0}.panel{background:linear-gradient(135deg,#eaf3ff,#f8fbff);border:1px solid #d6e6ff;border-radius:18px;padding:28px}.panel .cloud{font-size:3.5rem}.contact{grid-template-columns:.8fr 1.2fr;align-items:stretch}.contactBox{background:var(--navy);color:white;border-radius:16px;padding:27px}.contactBox p{color:#d6e5ff}.contactBox strong{display:block;color:#9fc5ff;text-transform:uppercase;font-size:.8rem;letter-spacing:1px}.contactBox .detail{margin:18px 0;overflow-wrap:anywhere}form{display:grid;gap:13px}.row{display:grid;grid-template-columns:1fr 1fr;gap:13px}label{font-weight:bold;font-size:.9rem;display:block;margin-bottom:5px}input,select,textarea{width:100%;font:inherit;padding:11px 12px;border:1px solid #cdd9e8;border-radius:8px}textarea{min-height:115px}.note{font-size:.82rem;color:var(--muted)}footer{background:#07152e;color:#c8d5e9;padding:25px 0}.foot{display:flex;justify-content:space-between;gap:15px;flex-wrap:wrap}.foot strong{color:white}@media(max-width:820px){.heroGrid,.two,.contact{grid-template-columns:1fr}.grid{grid-template-columns:repeat(2,1fr)}}@media(max-width:570px){.nav{align-items:flex-start;flex-direction:column}nav{gap:10px}.grid,.row{grid-template-columns:1fr}section{padding:50px 0}.hero{padding:52px 0}}
+</style></head><body>
+<header><div class="wrap nav"><a class="brand" href="#home">KS <span>INFOTECH</span></a><nav><a href="#home">Home</a><a href="#services">Services</a><a href="#products">Product Catalogue</a><a href="#about">About</a><a href="#contact">Contact</a></nav><a class="btn" href="#contact">Get a Quote</a></div></header>
+<main><section class="hero" id="home"><div class="wrap heroGrid"><div><div class="eyebrow">Technology that moves business forward</div><h1>Cloud, Software &amp; CRM Solutions for Your Business</h1><p>KS Infotech helps businesses work smarter with cloud hosting, business software, CRM implementation, website solutions and custom software development.</p><div class="actions"><a class="btn" href="#services">Explore Services</a><a class="btn light" href="#contact">Talk to Our Team</a></div></div><div class="heroBox"><h3>Practical technology. Reliable support.</h3><div><span class="tick">✓</span><b>Cloud-ready operations</b><br>Access supported applications from different locations.</div><div><span class="tick">✓</span><b>Business software expertise</b><br>Solutions for accounting, billing and workflows.</div><div><span class="tick">✓</span><b>CRM that fits your process</b><br>Third-party CRM setup or custom development.</div></div></div></section>
+<section id="services"><div class="wrap"><div class="head"><div class="eyebrow">What we do</div><h2>Services built around your business</h2><p class="muted">From cloud access to tailored applications, get technology support in one place.</p></div><div class="grid">
+<article class="card"><div class="ico">☁️</div><h3>Cloud Hosting</h3><p>Server and application hosting options based on workload, access and business requirements.</p><span class="price">Plans on request</span></article>
+<article class="card"><div class="ico">🧾</div><h3>Business Software on Cloud</h3><p>Remote access options for Tally, BUSY and Marg, subject to compatibility.</p><span class="price">Plans on request</span></article>
+<article class="card"><div class="ico">🤝</div><h3>CRM Solutions</h3><p>CRM selection, implementation, configuration, training and support.</p><span class="price">Scope-based quote</span></article>
+<article class="card"><div class="ico">🛠️</div><h3>Custom CRM Development</h3><p>Lead tracking, follow-up reminders, sales pipelines, reports and custom workflows.</p><span class="price">Scope-based quote</span></article>
+<article class="card"><div class="ico">🌐</div><h3>Website Designing &amp; Hosting</h3><p>Responsive business websites, landing pages and hosting setup.</p><span class="price">Plans on request</span></article>
+<article class="card"><div class="ico">💻</div><h3>Software Development</h3><p>Custom business tools, integrations and automation.</p><span class="price">Scope-based quote</span></article>
+<article class="card"><div class="ico">⚙️</div><h3>Tally Customization</h3><p>Support for reporting, data handling and business-specific workflows.</p><span class="price">Scope-based quote</span></article>
+<article class="card"><div class="ico">📈</div><h3>Vyapar Software</h3><p>Guidance for billing and inventory software options.</p><span class="price">Plans on request</span></article>
+<article class="card"><div class="ico">🧑‍💼</div><h3>IT Consultation &amp; Support</h3><p>Practical guidance to assess requirements and choose suitable technology.</p><span class="price">Contact for details</span></article>
+</div></div></section>
+<section class="soft" id="cloud"><div class="wrap two"><div><div class="eyebrow" style="color:var(--blue)">Work from anywhere</div><h2>Cloud access for business applications</h2><p class="muted">Plan access for authorised users across locations. Discuss server sizing, user count, backups and security before selecting a setup.</p><ul class="checklist"><li>Requirement-based hosting recommendations</li><li>Multi-user access planning</li><li>Backup and security needs discussion</li><li>Setup support for compatible applications</li></ul><a class="btn" href="#contact">Discuss Cloud Hosting</a></div><div class="panel"><div class="cloud">☁️</div><h3>Hosting that matches your workload</h3><p class="muted">Actual customer cloud server hosting is a separate service and may involve paid infrastructure costs. This website can itself be hosted free on GitHub Pages.</p></div></div></section>
+<section id="products"><div class="wrap"><div class="head"><div class="eyebrow">Product catalogue</div><h2>Explore software solutions</h2><p class="muted">Tell us what your business uses today and we’ll discuss suitable options and requirements.</p></div><div class="grid">
+<article class="card"><div class="ico">📊</div><h3>Tally on Cloud</h3><p>Cloud access options for supported Tally setups and authorised users.</p><span class="price">Request pricing</span><a class="btn enquire" data-service="Tally on Cloud" href="#contact">Enquire</a></article>
+<article class="card"><div class="ico">📚</div><h3>BUSY on Cloud</h3><p>Remote access options for compatible BUSY workflows.</p><span class="price">Request pricing</span><a class="btn enquire" data-service="BUSY on Cloud" href="#contact">Enquire</a></article>
+<article class="card"><div class="ico">🧮</div><h3>Marg on Cloud</h3><p>Hosting discussions for supported Marg configurations.</p><span class="price">Request pricing</span><a class="btn enquire" data-service="Marg on Cloud" href="#contact">Enquire</a></article>
+<article class="card"><div class="ico">👥</div><h3>Third-Party CRM Software</h3><p>CRM platform selection, licensing assistance, setup and implementation.</p><span class="price">Product and user based</span><a class="btn enquire" data-service="Third-Party CRM Software" href="#contact">Enquire</a></article>
+<article class="card"><div class="ico">🧩</div><h3>Custom CRM Development</h3><p>CRM tailored to sales stages, follow-ups, reporting and team workflows.</p><span class="price">Based on requirements</span><a class="btn enquire" data-service="Custom CRM Development" href="#contact">Enquire</a></article>
+<article class="card"><div class="ico">🧾</div><h3>Vyapar Software</h3><p>Billing and inventory software guidance for your business.</p><span class="price">Request pricing</span><a class="btn enquire" data-service="Vyapar Software" href="#contact">Enquire</a></article>
+</div><p class="note" style="text-align:center;margin-top:20px">Product names belong to their respective owners. Availability, licensing and compatibility are subject to vendor terms.</p></div></section>
+<section class="soft" id="about"><div class="wrap two"><div><div class="eyebrow" style="color:var(--blue)">Why KS Infotech</div><h2>Technology made easier to use</h2><p class="muted">We focus on understanding your requirements and helping you choose solutions that fit your business—from cloud access and software support to custom workflows.</p><ul class="checklist"><li>Requirement-first recommendations</li><li>Solutions for small and growing businesses</li><li>Cloud, software and web project support</li><li>Clear quotations based on agreed scope</li></ul></div><div class="card"><div class="ico">🎯</div><h3>Our approach</h3><p>Understand your workflow → recommend a suitable solution → agree scope and quotation → plan implementation and support.</p><hr style="border:0;border-top:1px solid var(--line);margin:22px 0"><h3>Need something specific?</h3><p>Share your user count, current software and business requirements.</p><a class="btn" style="margin-top:18px" href="#contact">Tell Us Your Requirement</a></div></div></section>
+<section id="contact"><div class="wrap"><div class="head"><div class="eyebrow">Get in touch</div><h2>Let’s discuss your requirement</h2><p class="muted">Send your enquiry through WhatsApp or contact us by email.</p></div><div class="contact"><div class="contactBox"><h3>KS Infotech</h3><p>Cloud, software, CRM and website solutions for your business.</p><div class="detail"><strong>WhatsApp / Phone</strong><a href="https://wa.me/919971518060" target="_blank" rel="noopener">+91 99715 18060</a></div><div class="detail"><strong>Email</strong><a href="mailto:ksinfotechggn26@gmail.com">ksinfotechggn26@gmail.com</a></div><a class="btn green" href="https://wa.me/919971518060" target="_blank" rel="noopener">Chat on WhatsApp</a></div><div class="card"><form id="enquiryForm"><div class="row"><div><label for="name">Your name *</label><input id="name" name="name" required placeholder="Enter your name"></div><div><label for="phone">Phone number *</label><input id="phone" name="phone" required inputmode="tel" placeholder="Enter phone number"></div></div><div><label for="email">Email (optional)</label><input id="email" name="email" type="email" placeholder="you@example.com"></div><div><label for="service">Service / Product *</label><select id="service" name="service" required><option value="">Select a service</option><option>Cloud Hosting</option><option>Tally on Cloud</option><option>BUSY on Cloud</option><option>Marg on Cloud</option><option>Third-Party CRM Software</option><option>Custom CRM Development</option><option>Website Designing &amp; Hosting</option><option>Tally Customization</option><option>Software Development</option><option>Vyapar Software</option><option>IT Consultation &amp; Support</option><option>Other</option></select></div><div><label for="message">Requirement details *</label><textarea id="message" name="message" required placeholder="Tell us what you need, number of users, timeline, etc."></textarea></div><button class="btn" type="submit">Send Enquiry on WhatsApp</button><p class="note">This form opens WhatsApp with your message prepared. It does not store submissions on this website or send email automatically.</p></form></div></div></div></section>
+</main><footer><div class="wrap foot"><div><strong>KS INFOTECH</strong><br>Cloud • Software • CRM • Web Solutions</div><div>© <span id="year"></span> KS Infotech. All rights reserved.</div></div></footer>
+<script>document.getElementById('year').textContent=new Date().getFullYear();document.querySelectorAll('.enquire').forEach(a=>a.addEventListener('click',()=>document.getElementById('service').value=a.dataset.service));document.getElementById('enquiryForm').addEventListener('submit',e=>{e.preventDefault();const f=new FormData(e.target);const msg=['Hello KS Infotech, I would like to enquire about your services.','Name: '+f.get('name'),'Phone: '+f.get('phone'),'Email: '+(f.get('email')||'Not provided'),'Service: '+f.get('service'),'Requirement: '+f.get('message')].join('\n');window.open('https://wa.me/919971518060?text='+encodeURIComponent(msg),'_blank','noopener')});</script></body></html>
